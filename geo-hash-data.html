@@ -46,6 +46,7 @@
     },
     process: function(data) {
       var output = {};
+      var count = 0;
       if (data != null) {
         Object.keys(data).forEach(function(key) {
           if (data[key].hasOwnProperty("LatLng")) { 
