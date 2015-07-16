@@ -22,10 +22,10 @@
           }
           return add(newData,path,output[thisKey],path);
         } else {
-          if (!output.hasOwnProperty(thisKey)) {
-            output[thisKey] = [newData];
+          if (!Array.isArray(output)) {
+            output = [newData];
           } else {
-            output[thisKey].push(newData)
+            output.push(newData)
           }
           return add(false,path,output,key);
         }
