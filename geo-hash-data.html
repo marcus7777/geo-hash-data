@@ -27,7 +27,7 @@
       if (data != null) {
         Object.keys(data).forEach(function(key) {
           console.log(key, data[key]);
-          if (data[key].hasOwnProperty("latlng")) { 
+          if (data[key].hasOwnProperty("LatLng")) { 
             
             console.log(key, data[key].latlng);
             var latlng = data[key].latlng.split(",");
