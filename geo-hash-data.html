@@ -56,7 +56,7 @@
             
             var latlng = data[key].LatLng.split(",");
             output = add(data[key],encodeGeoHash(+latlng[1], +latlng[0]),output);
-            console.log(encodeGeoHash(+latlng[1], +latlng[0]));
+            console.log(output);
             count++; 
           }
         });
