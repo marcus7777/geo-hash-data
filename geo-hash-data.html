@@ -36,7 +36,7 @@
             console.log(key, data[key].LatLng);
             
             var latlng = data[key].LatLng.split(",");
-            
+            output = this.add(data[key],encodeGeoHash(+latlng[1], +latlng[0]),output);
             console.log(encodeGeoHash(+latlng[1], +latlng[0]));
             count++; 
           }
@@ -49,6 +49,23 @@
         num: count,
         output: output
       };
+    },
+    add : function(newData,key,output,path) {
+      debugger;
+      if (key.length > 1) {
+        var keys = key.match(/.{1,2}/g);
+        var thisKey = keys[0];
+        var path = keys.splice(1).join("");
+        console.log("thisKey",thisKey);
+        console.log("Keys",newkeys);
+        if (!output.hasOwnProperty(thisKey)) {
+          output[thisKey] = {};
+        }
+        return add(newData,key,output[thisKey],path);
+      } else {
+        
+        return add(newData,key,output,path);
+      }
     }
   });
 })();
