@@ -48,17 +48,25 @@
     },
     add : function(newData,key,output,path) {
       debugger;
-      if (key.length > 1) {
-        var keys = key.match(/.{1,2}/g);
-        var thisKey = keys[0];
-        var path = keys.splice(1).join("");
-        if (!output.hasOwnProperty(thisKey)) {
-          output[thisKey] = {};
+      if (newData) {
+        if (key.length > 1) {
+          var keys = key.match(/.{1,2}/g);
+          var thisKey = keys[0];
+          var path = keys.splice(1).join("");
+          if (!output.hasOwnProperty(thisKey)) {
+            output[thisKey] = {};
+          }
+          return this.add(newData,key,output[thisKey],path);
+        } else {
+          if (!output.hasOwnProperty(thisKey)) {
+            output[thisKey] = [newData];
+          } else {
+            output[thisKey].push(newData)
+          }
+          return this.add(false,key,output,path);
         }
-        return this.add(newData,key,output[thisKey],path);
       } else {
-        
-        return this.add(newData,key,output,path);
+        return output
       }
     }
   });
