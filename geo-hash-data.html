@@ -38,7 +38,8 @@
     is: 'geo-hash-data',
     properties: {
       output: {
-        computed: "process(data)"
+        computed: "process(data)",
+        notify: true
       },
       input: {
         type: String,
@@ -51,9 +52,6 @@
       if (data != null) {
         Object.keys(data).forEach(function(key) {
           if (data[key].hasOwnProperty("LatLng")) { 
-            
-            console.log(key, data[key].LatLng);
-            
             var latlng = data[key].LatLng.split(",");
             output = add(data[key],encodeGeoHash(+latlng[1], +latlng[0]),output);
             count++; 
