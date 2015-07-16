@@ -55,10 +55,10 @@
         if (!output.hasOwnProperty(thisKey)) {
           output[thisKey] = {};
         }
-        return add(newData,key,output[thisKey],path);
+        return this.add(newData,key,output[thisKey],path);
       } else {
         
-        return add(newData,key,output,path);
+        return this.add(newData,key,output,path);
       }
     }
   });
