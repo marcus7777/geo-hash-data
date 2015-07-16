@@ -22,12 +22,21 @@
       }
     },
     process: function(data) {
-      console.log(data);
       var output = {};
       //
       if (data != null) {
         Object.keys(data).forEach(function(key) {
-          console.log(key, data[key]);
+          if (data[key].hasOwnProperty("latlng") { 
+            console.log(key, data[key]);
+            console.log(key, data[key].latlng);
+            var latlng = data[key].latlng.split(",");
+            console.log(key, latlng[0]);
+            console.log(key, latlng[1]);
+            var lat = latlng[0];
+            var lng = latlng[1];
+            
+            console.log(encodeGeoHash(+lng, +lat));
+          }
         });
       }
       // encodeGeoHash(+lng, +lat);
