@@ -24,11 +24,13 @@
     process: function(data) {
       console.log(data);
       var output = {};
-      // 
-      Object.keys(data).forEach(function(key) {
-        console.log(key, obj[key]);
-      });
-      encodeGeoHash(+lng, +lat);
+      //
+      if (data != null) {
+        Object.keys(data).forEach(function(key) {
+          console.log(key, obj[key]);
+        });
+      }
+      // encodeGeoHash(+lng, +lat);
       return output;
     }
   });
