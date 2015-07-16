@@ -28,7 +28,7 @@
     },
     process: function(data) {
       var output = {};
-      var count = 0;
+      var count = this.count;
       //
       if (data != null) {
         Object.keys(data).forEach(function(key) {
@@ -39,12 +39,11 @@
             var latlng = data[key].LatLng.split(",");
             
             console.log(encodeGeoHash(+latlng[1], +latlng[0]));
-            
             count++; 
           }
         });
       }
-      this.count = count;
+      //this.count = count;
       console.log(output);
       // encodeGeoHash(+lng, +lat);
       return {
