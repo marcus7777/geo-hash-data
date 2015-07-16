@@ -20,7 +20,9 @@
           if (!output.hasOwnProperty(thisKey)) {
             output[thisKey] = {};
           }
-          return add(newData,path,output[thisKey],path);
+          output[thisKey] = add(newData,path,output[thisKey],path);
+          
+          return output;
         } else {
           if (!Array.isArray(output)) {
             output = [newData];
