@@ -19,15 +19,11 @@
       input: {
         type: String,
         value: "https://essentialhotels.co.uk/index.json"
-      },
-      count: {
-        type: Number,
-        value:0
       }
     },
     process: function(data) {
       var output = {};
-      var count = this.count;
+      var add = this.add;
       //
       if (data != null) {
         Object.keys(data).forEach(function(key) {
@@ -36,7 +32,7 @@
             console.log(key, data[key].LatLng);
             
             var latlng = data[key].LatLng.split(",");
-            output = this.add(data[key],encodeGeoHash(+latlng[1], +latlng[0]),output);
+            output = add(data[key],encodeGeoHash(+latlng[1], +latlng[0]),output);
             console.log(encodeGeoHash(+latlng[1], +latlng[0]));
             count++; 
           }
