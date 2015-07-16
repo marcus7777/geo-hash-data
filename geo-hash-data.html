@@ -10,43 +10,7 @@
     <script>
       
 (function() {
-  Polymer({
-    is: 'geo-hash-data',
-    properties: {
-      output: {
-        computed: "process(data)"
-      },
-      input: {
-        type: String,
-        value: "https://essentialhotels.co.uk/index.json"
-      }
-    },
-    process: function(data) {
-      var output = {};
-      var add = this.add;
-      //
-      if (data != null) {
-        Object.keys(data).forEach(function(key) {
-          if (data[key].hasOwnProperty("LatLng")) { 
-            
-            console.log(key, data[key].LatLng);
-            
-            var latlng = data[key].LatLng.split(",");
-            output = add(data[key],encodeGeoHash(+latlng[1], +latlng[0]),output);
-            console.log(encodeGeoHash(+latlng[1], +latlng[0]));
-            count++; 
-          }
-        });
-      }
-      //this.count = count;
-      console.log(output);
-      // encodeGeoHash(+lng, +lat);
-      return {
-        num: count,
-        output: output
-      };
-    },
-    add : function(newData,key,output,path) {
+  var add = function(newData,key,output,path) {
       debugger;
       if (newData) {
         if (key.length > 1) {
@@ -68,6 +32,40 @@
       } else {
         return output
       }
+    }
+  Polymer({
+    is: 'geo-hash-data',
+    properties: {
+      output: {
+        computed: "process(data)"
+      },
+      input: {
+        type: String,
+        value: "https://essentialhotels.co.uk/index.json"
+      }
+    },
+    process: function(data) {
+      var output = {};
+      if (data != null) {
+        Object.keys(data).forEach(function(key) {
+          if (data[key].hasOwnProperty("LatLng")) { 
+            
+            console.log(key, data[key].LatLng);
+            
+            var latlng = data[key].LatLng.split(",");
+            output = add(data[key],encodeGeoHash(+latlng[1], +latlng[0]),output);
+            console.log(encodeGeoHash(+latlng[1], +latlng[0]));
+            count++; 
+          }
+        });
+      }
+      //this.count = count;
+      console.log(output);
+      // encodeGeoHash(+lng, +lat);
+      return {
+        num: count,
+        output: output
+      };
     }
   });
 })();
