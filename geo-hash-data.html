@@ -29,9 +29,9 @@
           console.log(key, data[key]);
           if (data[key].hasOwnProperty("LatLng")) { 
             
-            console.log(key, data[key].latlng);
+            console.log(key, data[key].LatLng);
             
-            var latlng = data[key].latlng.split(",");
+            var latlng = data[key].LatLng.split(",");
             console.log(key, latlng[0]);
             console.log(key, latlng[1]);
             var lat = latlng[0];
