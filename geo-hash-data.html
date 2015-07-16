@@ -52,8 +52,6 @@
         var keys = key.match(/.{1,2}/g);
         var thisKey = keys[0];
         var path = keys.splice(1).join("");
-        console.log("thisKey",thisKey);
-        console.log("Keys",newkeys);
         if (!output.hasOwnProperty(thisKey)) {
           output[thisKey] = {};
         }
