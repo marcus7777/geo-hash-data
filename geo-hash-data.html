@@ -4,6 +4,7 @@
   <dom-module id="geo-hash-data">
 
     <template>
+      <span>{{count}}</span>
       <iron-ajax url="{{input}}" last-response="{{data}}" auto></iron-ajax>
     </template>
     
@@ -32,12 +33,9 @@
             console.log(key, data[key].LatLng);
             
             var latlng = data[key].LatLng.split(",");
-            console.log(key, latlng[0]);
-            console.log(key, latlng[1]);
-            var lat = latlng[0];
-            var lng = latlng[1];
             
-            console.log(encodeGeoHash(+lng, +lat));
+            console.log(encodeGeoHash(+latlng[1], +latlng[0]));
+            this.count++
           }
         });
       }
