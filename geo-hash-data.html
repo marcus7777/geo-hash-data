@@ -43,7 +43,7 @@
       },
       input: {
         type: String,
-        value: "https://essentialhotels.co.uk/index.json"
+        value: "/index.json"
       }
     },
     process: function(data) {
@@ -63,13 +63,10 @@
       //this.count = count;
       // console.log(output);
       // encodeGeoHash(+lng, +lat);
-
-
-      return {
-        num: count,
-        data: output,
-        processingTime: performance.now() - start
-      };
+      
+      console.log("geo hashing data take: ", performance.now() - start)
+      output.num = count;
+      return output;
     }
   });
 })();
