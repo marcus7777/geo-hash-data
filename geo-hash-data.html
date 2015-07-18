@@ -49,6 +49,8 @@
     process: function(data) {
       var output = {};
       var count = 0;
+      var start = performance.now()
+
       if (data != null) {
         Object.keys(data).forEach(function(key) {
           if (data[key].hasOwnProperty("LatLng")) { 
@@ -59,11 +61,14 @@
         });
       }
       //this.count = count;
-      console.log(output);
+      // console.log(output);
       // encodeGeoHash(+lng, +lat);
+
+
       return {
         num: count,
-        data: output
+        data: output,
+        processingTime: performance.now() - start
       };
     }
   });
