@@ -2,12 +2,11 @@
 <link rel="import" href="../iron-ajax/iron-ajax.html">
 
   <dom-module id="geo-hash-data">
-
     <template>
       <iron-ajax url="{{input}}" last-response="{{data}}" auto></iron-ajax>
     </template>
-    
-    <script>
+  </dom-module>
+  <script>
       
 (function() {
   var add = function(newData,key,output,oldPath) {
@@ -72,4 +71,3 @@
   });
 })();
     </script>
-  </dom-module>
