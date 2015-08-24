@@ -6,7 +6,7 @@
     "Marcus Hitchins <Marcus7777@gmail.com>"
   ],
   "description": "takes lat long from wordpress and turn it to a geo hashs",
-  "main": "get-hash.html",
+  "main": "geo-hash-data.html",
   "keywords": [
     "polymer",
     "web-components",
@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.0.0",
-    "geo-hash-data":"marcus7777/geohash-js#master"
+    "geo-hash-data":"marcus7777/geo-hash-data"
   },
   "license": "MIT",
   "ignore": [
